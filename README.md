@@ -17,7 +17,7 @@ Please keep in mind that this is a work in progress and it only support Proxyles
 
 
 ## Documentation
-Install using either `yarn add anticaptcha` or `npm i anticaptcha`.
+Install using `npm i @kalkih/anticaptcha`.
 
 For the example, we will use the nice feature that are [ES7 Async Function](https://developers.google.com/web/fundamentals/primers/async-functions) this will make the syntax more concise, but feel free to use good old Promises.
 
@@ -25,7 +25,7 @@ For the example, we will use the nice feature that are [ES7 Async Function](http
 
 ```javascript
 // main.js
-import { AntiCaptcha } from "anticaptcha";
+import { AntiCaptcha } from "@kalkih/anticaptcha";
 
 // Registering the API Client.
 const AntiCaptchaAPI = new AntiCapcha("<your_client_ID>"); // You can pass true as second argument to enable debug logs.

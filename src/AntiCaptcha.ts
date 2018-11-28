@@ -1,6 +1,6 @@
 import { ApiResponse, ApisauceInstance, create } from "apisauce";
 import { TaskTypes } from "./enum";
-import { ICreateTaskResponse, IGetBalanceResponse, IGetTaskResultResponse } from "./interfaces";
+import { ICreateTaskResponse, IGetBalanceResponse, IGetTaskResultResponse, IProxyObject } from "./interfaces";
 
 export class AntiCaptcha {
     private api: ApisauceInstance;
@@ -67,13 +67,15 @@ export class AntiCaptcha {
      * @returns {Promise<number>}
      * @memberof AntiCaptcha
      */
-    public async createTask(websiteURL: string, websiteKey: string, languagePool: string = "en") {
+    public async createTask(websiteURL: string, websiteKey: string, taskType: string, isInvisible: string, proxyObject?: IProxyObject) {
         const response = await this.api.post("createTask", {
-            languagePool,
+            languagePool: "en",
             task: {
-                type: TaskTypes.RECAPTCHA_PROXYLESS,
+                type: TaskTypes[taskType],
                 websiteKey,
                 websiteURL,
+                isInvisible,
+                ...proxyObject
             },
         }) as ApiResponse<ICreateTaskResponse>;
 

@@ -12,6 +12,16 @@ export interface ICreateTaskResponse extends IApiError {
   taskId: number;
 }
 
+export interface IProxyObject {
+  proxyType: string,
+  proxyAddress: string,
+  proxyPort: number,
+  proxyLogin?: string,
+  proxyPassword?: string,
+  userAgent: string,
+  cookies?: string,
+}
+
 export interface IGetTaskResultResponse extends IApiError {
   status: "ready" | "processing";
   solution: { gRecaptchaResponse: string };

@@ -41,6 +41,14 @@ const mainProcess = async () => {
     const taskId = await AntiCaptchaAPI.createTask(
         "http://www.some-site.com", // The page where the captcha is
         "7Lfh6tkSBBBBBBGN68s8fAVds_Fl-HP0xQGNq1DK", // The data-site-key value
+        "RECAPTCHA_PROXYLESS", // Captcha type: RECAPTCHA_PROXY, RECAPTCHA_PROXYLESS
+        true, // Invisible captcha
+        { // Optional proxy settings
+          proxyType: "http", // Proxy type: http, socks4, socks5
+          proxyAddress: "192.168.1.1", // Proxy IP address
+          proxyPort: 80, // Proxy Port
+          userAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36"
+        }
     )
 
     // Waiting for resolution and do something
